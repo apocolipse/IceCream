@@ -124,7 +124,7 @@ extension CKRecordConvertible where Self: Object {
                         guard let object = wrappedArray[index] as? Object, let primaryKey = object.objectSchema.primaryKeyProperty?.name else { continue }
                         switch object.objectSchema.primaryKeyProperty?.type {
                         case .string:
-                            if let primaryValueString = object[primaryKey] as? String, let obj = object as? CKRecordConvertible, !obj.isDeleted {
+                            if let primaryValueString = object[primaryKey] as? String, let obj = object as? CKRecordConvertible, !obj.isDeleted { 
                                 let referenceZoneID = CKRecordZone.ID(zoneName: "\(object.objectSchema.className)sZone", ownerName: CKCurrentUserDefaultName)
                                 referenceArray.append(CKRecord.Reference(recordID: CKRecord.ID(recordName: primaryValueString, zoneID: referenceZoneID), action: .none))
                             }
