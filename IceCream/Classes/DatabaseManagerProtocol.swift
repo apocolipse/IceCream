@@ -85,11 +85,11 @@ extension DatabaseManager {
         
         if #available(iOS 11.0, OSX 10.13, tvOS 11.0, watchOS 4.0, *) {
             let config = CKOperation.Configuration()
-            config.isLongLived = true
+            config.isLongLived = false
             modifyOpe.configuration = config
         } else {
             // Fallback on earlier versions
-            modifyOpe.isLongLived = true
+            modifyOpe.isLongLived = false
         }
         
         // We use .changedKeys savePolicy to do unlocked changes here cause my app is contentious and off-line first
